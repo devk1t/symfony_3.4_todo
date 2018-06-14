@@ -1,0 +1,8 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <a class="btn btn-default" href="/">Back to List</a>
+    <hr>
+    <h2 class="page-header"> {{todo.name}}</h2>
+    <p> {{todo.category}} </p>
+    <p> {{todo.description}} </p>
+{% endblock %}

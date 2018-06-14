@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block body %} 
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>To Do Name</th>
+            <th>Description</th>
+            <th>Priority</th>
+            <th>Due Date</th>
+            <th>Created</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for todo in todos %}
+        <tr>
+        <th scope="row">{{todo.id}}</th>
+            <td>{{todo.name}}</td>
+            <td>{{todo.description}}</td>
+            <td>{{todo.priority}}</td>
+            <td>{{todo.duedate}}</td>
+            <td>{{todo.createdate}}</td>
+            <td>
+                <a href="/test/details/{{todo.id}}" class="btn btn-success"> View </a>
+                <a href="/test/edit/{{todo.id}}" class="btn btn-success"> Edit </a> 
+                <a href="/test/delete/{{todo.id}}" class="btn btn-danger"> Delete </a>  
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}

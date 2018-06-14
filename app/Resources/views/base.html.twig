@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../../../favicon.ico">
+
+    <title>{% block title %}Welcome!{% endblock %}</title>
+
+    <!-- Bootstrap core CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+     {% block stylesheets %}{% endblock %}
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+
+    <link href="jumbotron.css" rel="stylesheet">
+  </head>
+
+  <body>
+
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+      <a class="navbar-brand" href="#">Test</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="/test/create/1">Add <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="/test/details/1">Details <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="/">Edit <span class="sr-only">(current)</span></a>
+          </li>
+
+        </ul>
+      </div>
+    </nav>
+
+    <main role="main">
+
+     
+      <div class="jumbotron">
+        <div class="container">
+            <h3> Symfony 3.4 </h3>
+
+            
+        </div>
+      </div>
+
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+          
+                  <!-- the twig body is here -->
+                  {% for flash_message in app.session.flashbag.get('notice') %}
+                  <div class="allert alert-success">{{ flash_message}}</div>
+                  {% endfor %}
+                  {% block body %}{% endblock %}
+                  {% block javascripts %}{% endblock %}
+        <!-- the twig body is here -->
+          </div>
+        </div>
+
+      </div> <!-- /container -->
+
+    </main>
+
+    <footer class="container">
+    </footer>
+
+  </body>
+</html>
